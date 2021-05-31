@@ -1,13 +1,15 @@
 #pip install opencv-python
 import cv2
+
 #capture frames from a video
 cap=cv2.VideoCapture('car.mp4')
 
 #object we want to detect
-car_cascade=cv2.CascadeClassifier('cars.xml')
+car_cascade = cv2.CascadeClassifier('cars.xml')
 
 while True:
-    ret,frames=cap.read()
+    
+    ret,frames = cap.read()
     gray=cv2.cvtColor(frames,cv2.COLOR_BGR2GRAY)
     cars=car_cascade.detectMultiScale(gray,1.1,2)
 
